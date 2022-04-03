@@ -1,17 +1,23 @@
-use bindings::{ 
-    Windows::Storage::Pickers::PickerLocationId,
-    Windows::Storage::Pickers::PickerViewMode,
-    Windows::Storage::Pickers::FileOpenPicker,
-    Windows::Storage::StorageFile,
-    Windows::Storage::StorageFolder,
-    Windows::Media::Audio::AudioGraph,
-    Windows::Media::Audio::AudioGraphSettings,
-    Windows::Media::Render::AudioRenderCategory,
-};
+
+    use windows::{
+        core::Result,
+        Storage::{
+            StorageFile,
+        },
+        Media::{
+            Audio::{
+                AudioGraph,AudioGraphSettings,
+            },
+            Render::{
+                AudioRenderCategory,
+            }
+        }
+    };
+
 use std::io;
 use std::{thread, time};
 
-fn main() -> windows::Result<()> {
+fn main() -> Result<()> {
     
     //Audio Graph作成
     let settings = AudioGraphSettings::Create(AudioRenderCategory::Media)?;
